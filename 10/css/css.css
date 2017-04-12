@@ -1,0 +1,72 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492013427841&di=56108e0681705433f1c4c9a86bc17aa2&imgtype=0&src=http%3A%2F%2Fwww.pptbz.com%2Fpptpic%2FUploadFiles_6909%2F201105%2F2011051707533148.jpg) repeat scroll top left;
+	padding: 0;
+	margin: 0;	
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+#wrapper{
+	max-width: 1000px;
+	min-width: 600px;
+	margin: auto;
+}
+ul div{
+	margin: 25px;
+}
+footer a{
+	margin: 20px;
+	padding: 15px;
+}
+h1{
+	text-align: center;
+}
+header{
+	
+	border: 1px solid #9df;
+	margin: 2px 0;
+	height: 200px;
+}
+footer{
+	border: 1px solid #9df;
+	margin: 2px 0;
+	min-height: 100px;
+	
+}
+aside,main{
+	border: 1px solid #9df;
+}
+section,aside,main{
+	min-height: 500px;
+}
+aside{
+	width: 20%;
+	margin-right: 2px;
+	float: left;
+	
+}
+main{
+	width: 79%;
+	float: right;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
