@@ -1,0 +1,83 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	padding: 0;
+	margin: 0;	
+	background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492251845655&di=3a101d2471969f764983d9d825989ade&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2Fimg013%2Fv2%2F89%2Fd%2F68.jpg);
+	background-size: 100%;
+	}
+header{
+    width:1200px;
+    height:100px;
+    border: none;
+    margin:auto;
+}
+header h1{
+    text-align: center;
+    font-size: 72px;
+    color:blue;
+    margin:0;
+}
+nav {
+    width:1200px;
+    margin:auto;
+    border: none;
+    height:100px;
+}
+.clearfix::after{
+    content:"";
+    display:block;
+    clear: both;
+    font-size:0;
+    
+}
+nav ul li{
+    font-size:24px;
+    margin-right:100px;
+    float:left;
+    padding: 10px;
+
+}
+nav ul li a{
+    display: inline-block;
+    background-color: lime;
+    text-decoration: none;
+    border-radius:3px;
+    padding: 3px;
+    }
+  nav ul li a:hover{
+    background-color: lightcoral;
+    transition:all 1s;
+    border-radius:20px;
+  }
+  section{
+    width:1200px;
+    margin: auto;
+    border: none;
+    position:relative;
+}
+section main p{
+    width:760px;
+    margin:20px;
+    font-size:16px;
+    border: none;
+}
+
+p{
+	color: deeppink;
+	align-content: center;
+}
+strong{
+	color: lightseagreen;
+}
+.c1:link,viaited {
+  	text-decoration: none;
+  	color: lightgreen;
+ }
+.c1:hover {
+    color: lightgreen;
+}
+.c1:active {
+  color: lightgreen;
+}  
