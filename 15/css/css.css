@@ -1,0 +1,55 @@
+*{
+	box-sizing: border-box;
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+body{
+    background: url(../img/240_1.jpg)  center top fixed no-repeat;
+    min-height: 1200px;
+    background-size: 100% 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+.wrapper{
+	max-width: 1200px;
+	margin: auto;
+}
+ul{
+	list-style-type: none;
+}
+header{
+	margin: 30px 0;
+	position: relative;
+
+}
+.logo img{
+	width: 80px;
+	height: auto;
+}
+nav{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+nav ul li{
+	float: left;
+	margin:20px 30px ;
+}
+ul li a{
+	  text-decoration: none;
+	  color: palevioletred;
+}
+nav ul li{
+    padding: 20px;
+    border: 1px solid transparent;
+    transition: color .5s,border .5s;
+}
+nav ul li:hover{
+	    color: #000;
+    border: 1px solid #fff;
+}
