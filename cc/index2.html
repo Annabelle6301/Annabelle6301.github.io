@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人主页</title>
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+            <a href="index.html" class="logo">
+           
+            	<img src="img/angellist.svg" alt=""/>
+            </a>
+            <nav>
+            	 <ul class="clearfix">
+            	<li><a href="#">关于</a></li>
+            	<li><a href="#">工作</a></li>
+            	<li><a href="#">联系</a></li>
+            </ul>
+            </nav>
+           <h2>大家好，我是Annabelle</h2>
+          <p>我是一个无忧无虑的胖子，我喜欢的东西很多，不喜欢的东西也很多</p>
+          <p>比如，我喜欢运动但是不喜欢出汗</p>
+          <p>我还是一个比较内敛的女生，不是很擅长交朋友，但是我的朋友并不少，朋友们性格都很好，她们使我变得outgoing！哈哈哈 </p>
+			</header>
+			<main>
+				<section class="C">
+					<h2>我的兴趣</h2>
+					<ul class="fav clearfix">
+						<li><a href="#" title="">学习</a></li>
+						<li><a href="#" title="">听音乐</a></li>
+						<li><a href="#" title="">看小说、漫画</a></li>
+						<li><a href="#" title="">书法</a></li>
+						<li><a href="#" title="">球类运动</a></li>
+						<li><a href="#" title="">自拍</a></li>
+					</ul>
+				</section>
+					<section class="workContainer">
+					<a id="a"></a>
+					<h2>项目示例</h2>
+					<div class="work clearfix">
+					<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>	
+						<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>
+						<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>
+						<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>
+						<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>
+						<figure class="work">
+						<figcaption>代表项目</figcaption>
+						<img src="img/joao-silas-51725.jpg" alt=""/>
+					</figure>
+					</div>
+				</section>
+				<section class="A">
+					<a id="b"></a>
+					<h2>联系我们</h2>
+					<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦！！哈哈哈哈哈哈哈哈哈哈哈哈哈！！</p>
+					<dl>
+						<dt>邮箱</dt>
+						<dd>1282488748@qq.com</dd>
+						<dt>QQ</dt>
+						<dd>1282488748</dd>
+					</dl>
+								<div class="contact">
+						<input type="text" name="name" id="name" placeholder="名字" />
+						<input type="text" name="name" id="name" placeholder="邮箱" />
+						<select name="fav" id="fav">
+							<option value="fav">噜噜噜</option>
+							<option value="web">嘿嘿嘿</option>
+							<option value="app">啦啦啦</option>
+							<option value="html5">哈哈哈</option>
+							<option value="chat">嘎嘎嘎</option>
+						</select>
+						<textarea name="message" id="message" placeholder="留言"></textarea>
+						<input type="submit" name="submit" id="submit" value="提交信息"/>
+					</div>
+				</section>
+			</main>
+			<footer>
+				<p>
+					&copy; Annabelle版权所有，如有雷同，非常感谢！
+				</p>
+				<a id="goTop" href="#">顶部</a>>
+			    </nav>
+			</footer>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('header a, .rightNav a').on('click', function(e) {
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500);
+					
+				});
+				$('#goTop').on('click', function(e) {
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: 0}, 500);
+				});
+			});
+		</script>
+	</body>
+</html>

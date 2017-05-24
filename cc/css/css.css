@@ -105,7 +105,7 @@ main section h2{
 	transition: opacity .5s;
 }
 .work figure img{
-	width: 100%;
+	width: 90%;
 	height: auto;
 	-webkit-filter: grayscale(.5);
 	transition: webkit-filter .5s;
@@ -116,4 +116,59 @@ main section h2{
 }
 .work figure:hover img{
 	-webkit-filter: grayscale(0);
+}
+  .A dl dt{
+	padding:5px 20px;
+	background-color: #fff;
+	color: #000;
+	display: inline-block;
+}
+   .A dl dd{
+	padding:5px 20px;
+	background-color: #000;
+	color: #fff;
+	margin: 0px 30px 0px 0px;
+	display: inline-block;
+}
+.contact input{
+	width: 31%;
+	margin: 5px 2% 5px 0px;
+	padding: 10px 16px;
+	border-radius: 3px;
+	border: none;
+	outline: none;
+}
+.contact select{
+	width: 32%;
+	padding: 10px 16px;
+	border-radius: 3px;
+	margin: 5px 0px 5px 4px;
+}
+.contact textarea,
+.contact input[type="submit"]{
+	width: 48%;
+	height: 50px;
+	padding: 10px 16px;
+	border-radius: 3px;
+	margin: 5px 3% 5px 0px;
+	vertical-align: top;
+}
+.contact input[type="submit"]{
+	margin: 5px 0px;
+	border:none;
+	outline: none;
+	background-color: pink;
+	cursor: pointer;
+}
+#goTop{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	border: 1px solid yellow;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 0.8em;
+	color: deepskyblue;
 }
