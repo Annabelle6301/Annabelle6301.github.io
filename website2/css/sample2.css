@@ -21,6 +21,7 @@ a{
 	max-width: 1200px;
 	margin: auto;
 	padding: 1px;
+	position: relative;
 }
 body{
 	min-height: 1400px;
@@ -102,16 +103,17 @@ header .topMenu a:hover{
 	/*min-height: 800px;*/
 	background: url(../img/banner.jpg) no-repeat center top;
 }
+.banner .container{
+	position: static;
+}
 .banner .text{
 	max-width: 800px;
 	height: 180px;
 	color: #fff;
 	position: absolute;
-	margin: auto;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
 	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
 	line-height: 1.5;
 } 
@@ -138,16 +140,21 @@ section h2+p{
 	margin-bottom: 80px;
 }
 .about .img{
-	
+	/*
+	 * 宽度 48%
+	 * 左浮动
+	 */
 	width: 48%;
 	float: left;
 }
 .about .img img{
 	width: 100%;
-	height: auto;
 }
 .about .note{
-
+	/*
+	 宽度
+	右浮动
+	 * */
 	width: 48%;
 	float: right;
 	line-height: 2;
@@ -162,58 +169,184 @@ section h2+p{
 }
 .about .note li{
 	counter-increment: a;
+	cursor: pointer;
 }
 .about .note li::before{
 	content: counter(a);
 	width: 20px;
 	height: 20px;
 	display: inline-block;
+	/*background-color: #000;
+	color: #fff;*/
 	text-align: center;
 	line-height: 20px;
 	border-radius: 20px;
 	border: 1px dashed #000;
 	margin-right: 20px;
+	/*transition: transform .5s;*/
 }
 .about .note li:hover::before{
+	/*transform: translate(10px) rotate(360deg);*/
 	animation: go 2s;
 }
+@keyframes go{
+	0%{
+		transform: translate(20px);
+	}
+	10%{
+		transform: translate(-20px);
+	}
+	20%{
+		transform: translate(15px);
+	}
+	30%{
+		transform: translate(-15px);
+	}
+	40%{
+		transform: translate(10px);
+	}
+	50%{
+		transform: translate(-10px);
+	}
+	60%{
+		transform: translate(5px);
+	}
+	70%{
+		transform: translate(-5px);
+	}
+	80%{
+		transform: translate(3px);
+	}
+	90%{
+		transform: translate(-3px);
+	}
+	100%{
+		transform: translate(0px);
+	}
+}
+/*
+ 服务部分
+ * */
 .service{
-	min-height: 600px;
 	background: url(../img/desktop.jpg) center center no-repeat;
 	background-size: cover;
+	position: relative;
+}
+.service .container{
+	z-index: 2;
+}
+.service::after{
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*background-color: rgba(0,0,0,.3);*/
+	box-shadow: inset 0px 0px 100px 50px rgba(0,0,0,.5);
+	z-index: 1;
 }
 .service li{
-	float: left;
 	width: 48%;
-	margin-right: 4%;
+	float: left;
 	text-align: right;
+	min-height: 100px;
+	margin: 20px 0px;
 	cursor: pointer;
-	min-height: 80px;
 }
 .service li::after{
-	content: "";
+	content: '';
 	display: table;
 	clear: both;
 }
 .service li:nth-child(2n){
-	margin-right: 0px;
+	float: right;
 	text-align: left;
-	
 }
 .service li i{
 	float: right;
-	padding: 12px 0px 12px 20px;
-	transition: transform .5s,color .5s;
+	padding: 5px 0px 5px 30px;
+	transition: transform .5s, color .5s;
 }
-.service li:hover i{
-	transform: scale(1.2);
-	color: #339BEB;
-}
+
 .service li:nth-child(2n) i{
 	float: left;
-	padding: 12px 20px 12px 0px;
+	padding: 5px 30px 5px 0px;
+}
+.service li:hover i{
+	color: #339BEB;
+	transform: scale(1.2) rotate(5deg);
 }
 .service li h3{
 	display: inline-block;
-	margin: 0px;
+	margin: 0;
+}
+/*
+ case部分
+ * */
+.case{
+	
+}
+
+.case figure{
+	float: left;
+	overflow: hidden;
+	width: 24%;
+	margin: 10px calc(4% / 3) 10px 0px;
+	position: relative;
+	cursor: pointer;
+}
+.case figure:nth-child(4n){
+	margin-right: 0px;
+}
+.case figure img{
+	width: 100%;
+	height: auto;
+	transform: scale(1) rotate(0deg);
+	transition: transform .5s;
+	vertical-align: top;
+}
+.case:hover img{
+	transform: scale(1.2) rotate(10deg);
+}
+.case figure figcaption{
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	top: 50%;
+	bottom: 5%;
+	background-color: rgba(255,255,255,.8);
+	padding: 10px;
+}
+.case figure figcaption .time{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-color:#339BEB;
+	font-size: 0.8em;
+	text-align: center;
+}
+.case figure figcaption .time .month{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.case figure figcaption h3{
+	margin: 5px 0px 0px 70px;
+}
+.case figure figcaption p{
+	font-size: 0.8em;
+	line-height: 1.5;
+}
+.case figure figcaption .data{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	font-size: 0.8em;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	background-color: rgba(0,0,0,.2);
+	text-align: right;
+}
+.case figure figcaption .data *{
+	padding: 0px 2px;
 }
