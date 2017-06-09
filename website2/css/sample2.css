@@ -183,10 +183,10 @@ section h2+p{
 	border-radius: 20px;
 	border: 1px dashed #000;
 	margin-right: 20px;
-	/*transition: transform .5s;*/
+	transition: transform .5s;
 }
 .about .note li:hover::before{
-	/*transform: translate(10px) rotate(360deg);*/
+	transform: translate(10px) rotate(360deg);
 	animation: go 2s;
 }
 @keyframes go{
@@ -306,7 +306,7 @@ section h2+p{
 	transition: transform .5s;
 	vertical-align: top;
 }
-.case:hover img{
+.case figure:hover img{
 	transform: scale(1.2) rotate(10deg);
 }
 .case figure figcaption{
@@ -326,15 +326,22 @@ section h2+p{
 	font-size: 0.8em;
 	text-align: center;
 }
+.case figure figcaption .time,
+.case figure figcaption .year{
+	line-height: 25px;
+}
 .case figure figcaption .time .month{
 	background-color: rgba(0, 0, 0, 0.1);
 }
 .case figure figcaption h3{
-	margin: 5px 0px 0px 70px;
+	margin: 10px 0px 0px 70px;
+}
+.case p a{
+	color: palevioletred;
 }
 .case figure figcaption p{
 	font-size: 0.8em;
-	line-height: 1.5;
+	line-height: 2.3;
 }
 .case figure figcaption .data{
 	position: absolute;
@@ -349,4 +356,47 @@ section h2+p{
 }
 .case figure figcaption .data *{
 	padding: 0px 2px;
+}
+.contact{
+	background: url(../img/android-1869510_1920.jpg) no-repeat center top;
+	background-size: cover;
+	color: #fff;
+}
+.contact .left{
+	width: 48%;
+	float: left;
+	margin-right: 4%;
+}
+.contact .left p{
+	margin-top: 0px;
+}
+.contact li i{
+	padding: 0px 10px 0px 0px;
+}
+.contact .right{
+	float: right;
+	width: 48%;
+	margin-right: 0%;
+}
+.contact .right input,
+.contact .right textarea{
+	width: 100%;
+	padding: 10px 16px;
+	margin: 10px 0;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.6);
+}
+::-webkit-input-placeholder{
+	color: #000;
+}
+::-moz-placeholder{
+	color: #000;
+}
+/*
+ footer
+ * */
+footer{
+	text-align: center;
 }
