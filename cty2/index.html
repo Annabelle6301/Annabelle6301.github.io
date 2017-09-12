@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#a{
+				font-size: 14px;
+				text-indent: 2em;
+				line-height: 1.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<a id="big" href="javascript:">大</a>&nbsp;<a id="small" href="javascript:">小</a>
+		<div id="a">
+			<p>fasgfyauhjbcuvhbvnbcvhvuv</p>
+			<p>vhsgvysvbhvbshfvfhbrhbvjsnvfs</p>
+			<p>jsdvuhvurvbkhrvbksuvhnurjbjkwnkjbn</p>
+			<p>hdvrhyvbsbvnuirhbwvujvnhwruhvuvbnv</p>
+		</div>
+		<script type="text/javascript">
+			var a=document.getElementById('a');
+			var big=document.getElementById('big');
+			var small=document.getElementById('small');
+			var i=14;
+			big.onclick=function(){
+				i+=2;
+				a.style.fontSize=i+'px';
+			}
+			small.onclick=function(){
+				i-=2;
+				a.style.fontSize=i+'px';
+			}
+		</script>
+	</body>
+</html>
