@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#colorTable {
+				border-collapse: collapse;
+				border: 1px solid rgba(0, 0, 0, .2);
+				width: 100%;
+			}
+			#colorTable td {
+				border: 1px solid rgba(0, 0, 0, .2);
+				height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table id="colorTable">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		var oColorTable = document.getElementById("colorTable");
+		var oTr=oColorTable.getElementsByTagName("tr");
+		var oTd = oColorTable.getElementsByTagName("td");
+		
+		for (i in oTd) {
+			//所有单元格渐变色
+			oTd[i].style.background = "hsla(" + i * 5 + ",50%,50%,.5)";
+			//隔行变色
+			//oTd[i].style.background="hsla("+((i/10)%2)*20+",50%,50%,.5)";
+			//行色渐变
+			//oTd[i].style.background="hsla("+((i/10)%10)*20+",50%,50%,.5)";
+			//隔列变色
+			//oTd[i].style.background="hsla("+((i%10)%2)*20+",50%,50%,.5)";
+			//列色渐变
+			//oTd[i].style.background="hsla("+(i%10)*20+",50%,50%,.5)";	
+		}
+
+		
+		 
+	</script>
+
+</html>
