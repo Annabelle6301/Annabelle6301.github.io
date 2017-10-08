@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>简易抽奖系统</title>
+		<style type="text/css">
+		.A h1 {
+				font-family: "微软雅黑";
+				color: blue;
+				text-align: center;
+			}
+	    .A p{
+				text-align: center;
+			}
+        .A{
+				background: #fff;
+				width: 600px;
+				height: 400px;
+				border-radius: 15px;
+				margin: 0 auto;
+			}
+						
+		#resultText{
+				width: auto;
+				height: 30px;
+				line-height: 30px;
+				border: 1px dashed blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="A">
+			<h1>谁是137小可爱？</h1>
+		<p><input type="text" id="numInput" placeholder="请输入数字1"/></p>
+			<p><input type="button" id="start" value="Start" onclick="go();" /></p>
+			<p><input type="button" id="end" value="Stop" onclick="stop();" /></p>
+			<p id="resultText"></p>
+		</div>
+		<script type="text/javascript">
+			var numInput = document.getElementById('numInput');
+			var start = document.getElementById('start');
+			var resultText = document.getElementById('resultText');
+
+			var str = "张虓敏？不，她是大可爱，我的最爱#郑可琪？不，她当然也不是，她是小懒虫#陈汇？不，她是小巧型#黄小翠？没错，就是她了，毋庸置疑#曾思思？绝不可能，她是最臭美好不好";
+			var arrStu = str.split("#")
+			var num;
+			var arrResult;
+			var time;
+
+			function luck() {
+				var num = Number(numInput.value);
+				var arrResult = new Array();
+				arrStu = str.split("#");//“#”分割
+				
+                 //判断，确定中奖人数
+				if(num == 0 || isNaN(num)) {
+					num = 3;
+				}
+
+				for(var i = 0; i < num; i++) {
+					var index = parseInt(Math.random() * arrStu.length);//转换为整数
+					arrResult.push(arrStu[index]);//在数组后面添加，并返回新的长度
+					arrStu.splice(index, 1);//删除元素，并向数组添加新的元素，防止重复
+				}
+				resultText.innerHTML = arrResult.join(" ");//输出时，元素之间用“ ”分割
+			}
+            //开始，定时
+			function go() {
+			a = setInterval("luck()", 100);
+
+			}
+            //停止
+			function stop() {
+				window.clearInterval(a);
+			}
+			//clearInterval() 方法可取消由 setInterval() 函数设定的定时执行操作。
+            //clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。
+		</script>
+	</body>
+
+</html>
