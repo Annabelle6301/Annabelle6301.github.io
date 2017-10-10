@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#clock{
+				width: 500px;
+				height: 500px;
+				position: relative;
+				background-color: #000;
+				background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1507600743&di=aa900b257f0fed13724882812040d540&src=http://pic25.huitu.com/res/20141129/522022_20141129065647141317_1.jpg) no-repeat;
+				background-size: 100%;
+				margin: auto;
+			}
+			#hour{
+				width: 1.5%;
+				height: 17%;
+				position: absolute;
+					background-color: #000;
+				left:49.1%;
+				top:33%;
+				-webkit-transform-origin: 50% 100%;
+			}
+				#min{
+				width: 1.4%;
+				height: 23%;
+				background-color: #000;
+				position: absolute;
+				left: 49.3%;
+				top: 27%;
+				-webkit-transform-origin: 50% 100%;
+			}
+			#sec{
+				width: 0.5%;
+				height: 33%;
+				background-color: #f00;
+				position: absolute;
+				left:49.5%;
+				top:17%;
+				-webkit-transform-origin: 50% 100%;
+			}
+			h3{
+				text-align: center;
+				color: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>没事的时候多看看时间，想想你荒废了多少</h3>
+		<div id="clock">
+			<div id="hour"></div>
+			<div id="min"></div>
+			<div id="sec"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var now;
+			var oClock=document.getElementById("clock");
+			var oHour=document.getElementById("hour");
+			var oMin=document.getElementById("min");
+			var oSec=document.getElementById("sec");
+			function runTime() {
+				now=new Date();
+				var sec=now.getSeconds()*6;
+				var min=(now.getMinutes()+now.getSeconds()/60)*6;
+				var hour=(now.getHours()+now.getMinutes()/60+now.getSeconds()/3600)*30;
+				oHour.style.webkitTransform="rotate("+hour+"deg)";
+				oMin.style.webkitTransform="rotate("+min+"deg)";
+				oSec.style.webkitTransform="rotate("+sec+"deg)";
+			}
+			setInterval("runTime()",100);
+		</script>
+	</body>
+</html>

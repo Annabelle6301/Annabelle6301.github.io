@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body onload="StartTime()">
+		<div id="txt">
+			
+		</div>
+		<script type="text/javascript">
+			function StartTime () {
+				var today=new Date();
+				var h=today.getHours();
+				var m=today.getMinutes();
+				var s=today.getSeconds();
+				document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+				t=setTimeout('StartTime()',500);
+			}
+		</script>
+	</body>
+</html>
