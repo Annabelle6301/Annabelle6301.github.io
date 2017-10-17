@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div class="a">
+			<input type="button"  value="1" />
+			<input type="button"  value="2" />
+			<input type="button"  value="3" />
+			<input type="button"  value="4" />
+			<input type="button"  value="5" />
+			<input type="button"  value="6" />
+		</div>
+		<script type="text/javascript">
+        var oBtnList=document.querySelectorAll(".a input");
+        for (var i=0;i<oBtnList.length;i++) {
+        	oBtnList[i].addEventListener("click",(function  (index) {
+        	  return function  (e) {console.log('你单击了第'+index+'按钮')};
+        	  	
+        	  
+        	}(i+1)));
+        }
+		</script>
+	</body>
+</html>
