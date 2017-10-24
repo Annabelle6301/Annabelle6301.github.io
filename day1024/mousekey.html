@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>鼠标事件</title>  
+    <script>  
+        window.onload=function () {  
+            var input=document.getElementById('b');  
+            input.onclick=function () {  
+                alert('按钮被点击了');  
+            }  
+  
+            var c= document.getElementById('c');  
+            c.ondblclick=function () {  
+                alert('双击')  
+            }  
+        }  
+        
+    </script> 
+    <script type="text/javascript">
+    	window.onload=function () {  
+            window.onkeypress=function (e) {  
+               alert(e.key)//弹出按键对应的字母  
+               alert(e.keyCode)  
+                if (e.charCode==103){  
+                    alert()  
+                }  
+            }  
+        }  
+    </script>
+</head>  
+<body>  
+<input type="button" id="b" value="点击">  
+<input type="button" id="c" value="双击">  
+</body>  
+</html>  

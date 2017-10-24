@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>		
+		<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById("div1");
+			document.onkeydown=function(ev){
+				var ev=ev||event;
+				switch(ev.keyCode){
+					case 37: 
+					oDiv.style.left=oDiv.offsetLeft - 1+ 'px';
+					break;
+					case 38: 
+					oDiv.style.top=oDiv.offsetTop - 1 + 'px';
+					break;
+					case 39: 
+					oDiv.style.left=oDiv.offsetLeft + 1 + 'px';
+					break;
+					case 40:
+					oDiv.style.top=oDiv.offsetTop + 1 + 'px';
+					break;
+				}
+
+			}}
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="width: 100px;height: 100px;background-color: red;position: absolute;"></div>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#one {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				
+				text-align: center;
+			}
+			#two{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			    margin-top: -320px;
+				margin-left: 400px;
+				text-align: center;
+			}
+			#three{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			    margin-top: -320px;
+				margin-left: 800px;
+				
+				text-align: center;
+			}
+			#four{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			    margin-top: -320px;
+				margin-left: 1200px;
+				
+				text-align: center;
+				position: fixed;
+				
+			}
+			#four p{
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--鼠标事件-->
+		<h1 id="one" onclick="changetext(this)">单击</h1>
+		<h1 id="two" ondblclick="changecolor(this)">双击</h1>
+		<h1 id="three" onmousedown="test(this)" onmouseup="test2(this)">按下或松开</h1>
+		<div id="four">
+			<h1  onmousewheel="return test3(this)">滑动滚轮</h1>
+		</div>
+		
+		
+		<script>
+//			
+           function changetext(e){
+           	e.innerHTML = "已经单击";
+           }
+           
+			
+			
+			
+			
+            function changecolor(e){
+            	e.style.backgroundColor="red"
+            }
+
+
+
+
+            function test(e){
+            	e.innerHTML += "已经按下";
+            }
+            function test2(e){
+            	e.innerHTML += "已经松开";
+            }
+			
+
+
+
+			
+			function test3(e){
+		       var zoom=parseInt(e.style.zoom, 10)||100;
+               zoom+=event.wheelDelta/12;
+                console.log(zoom);
+               if (zoom>0) e.style.zoom=zoom+'%';
+               return false;
+              
+			}
+			
+		</script>
+	</body>
+
+</html>
