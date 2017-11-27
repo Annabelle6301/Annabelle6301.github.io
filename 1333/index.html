@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.winContainer{
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				display: none;
+			}
+			.winContainer .mask{
+				width: 100%;
+				height: 100%;
+				background-color: lightcyan;
+			}
+			.winContainer .win{
+				width: 500px;
+				height: 500px;
+				position: absolute;
+				border: 1px solid black;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+			a{
+				text-decoration:none;
+				color: white;
+			}
+			.open{
+				width: 85px;
+				background: lightseagreen;
+			}
+			button{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="open">
+			<a href="javascript:" class="modal">打开窗口</a>
+		</div>
+		<div class="winContainer">
+			<div class="mask"></div>
+			<div class="win">666666666
+				<button>关闭</button>
+			</div>	
+		</div>
+		
+		<script type="text/javascript">
+			var oModal=document.querySelector(".modal");
+			var oWin=document.querySelector(".winContainer");
+			var oButton=document.querySelector("button");
+			oModal.addEventListener("click",function(event){
+				oWin.style.display="block";
+			});
+			oButton.addEventListener("click",function(event){
+				oWin.style.display="none";
+			});
+		</script>
+	</body>
+</html>
