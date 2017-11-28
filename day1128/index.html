@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.tooltip{
+				position: relative;
+			}
+			.tooltip span{
+				width: 180px;
+				padding: 5px 10px;
+				color: #000000;
+				background: deepskyblue;
+				text-align: center;
+				border-radius: 2px;
+				position: absolute;
+				left:-90px;
+				top: -40px;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity .5s; 
+			}
+			/*.tooltip span::after{
+				content: "";
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -8px;
+				border-top:8px solid deepskyblue ;
+				border-right:8px solid transparent ;
+				border-left: 8px solid transparent;
+			}*/
+			.tooltip span::after{
+				content: "";
+				width: 0;
+				height: 0;
+				position: absolute;
+			}
+			.tooltip[data-direction="top"] span{
+				left: -90px;
+				top: -38px;
+			}
+			.tooltip[data-direction="top"] span::after{
+				top: 100%;
+				left: 50%;
+				margin-left: -8px;
+				border-top:8px solid deepskyblue ;
+				border-right:8px solid transparent ;
+				border-left: 8px solid transparent;
+			}
+			.tooltip[data-direction="bottom"] span{
+				left: -90px;
+				top: 38px;
+			}
+			.tooltip[data-direction="bottom"] span::after{
+				bottom: 100%;
+				left: 50%;
+				margin-left: -8px;
+				border-bottom:8px solid deepskyblue ;
+				border-right:8px solid transparent ;
+				border-left: 8px solid transparent;
+			}
+			.tooltip[data-direction="left"] span{
+				left: -210px;
+				top: 0px;
+			}
+			.tooltip[data-direction="left"] span::after{
+				top: 25%;
+				right: -8px;
+				margin-left: -8px;
+				border-left:8px solid deepskyblue ;
+				border-top:8px solid transparent ;
+				border-bottom: 8px solid transparent;
+			}
+			.tooltip[data-direction="right"] span{
+				left: 30px;
+				top: 0;
+			}
+			.tooltip[data-direction="right"] span::after{
+				top: 50%;
+				left: -8px;
+				margin-left: -8px;
+				border-right:8px solid deepskyblue ;
+				border-left:8px solid transparent ;
+				border-top: 8px solid transparent;
+			}
+			.tooltip span.show{
+				opacity: 1;
+				visibility: visible;
+			}
+			.first{
+				text-align: center;
+				position: absolute;
+				top: 10%;
+				left:35%;
+				background-color: lightcoral;
+			}
+			.first p{
+				font-size: 1.4em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first">
+			<h2>tooltip提示框</h2>
+		    <p>tooltip提示框是网页中常见的<a href="#" class="tooltip" data-content = "积件思维">组件</a>，在网页交互中应用广泛</p>
+			<p>可实现<a href="#" class="tooltip" data-direction="top">上</a>、<a href="#" class="tooltip" data-content="下" data-direction = "bottom">下</a>、
+				<a href="#" class="tooltip" data-content="左" data-direction = "left">左</a>、
+				<a href="#" class="tooltip" data-content = "右" data-direction = "right">右</a>四种效果</p>
+			</div>
+			<script type="text/javascript">
+				var tips = document.querySelectorAll('.tooltip');
+				if(tips.length==0)
+				{
+					console,log("没有提示");
+				}
+				else{
+					for (var i = 0;i<tips.length;i++) {
+						var content = document.createElement("span");
+						var data = tips[i].hasAttribute('data-content')?tips[i].getAttribute('data-content'):"提示为空";
+						var dir = tips[i].hasAttribute('data-direction')?tips[i].getAttribute('data-direction'):"top";
+						content.innerHTML = data;
+						tips[i].appendChild(content);
+						tips[i].addEventListener("mouseover",mouseoverHandler);
+						tips[i].addEventListener("mouseout",mouseoutHandler);
+					}
+				}
+				function mouseoverHandler() {
+					var event = event||window.event;
+					var target = event.target||event.srcElement;
+					var targetSpan = target.getElementsByTagName('span')[0];
+					targetSpan.classList.add('show');
+					
+				}
+				
+				function mouseoutHandler () {
+					var event = event||window.event;
+					var target = event.target||event.srcElement;
+					var targetSpan = target.getElementsByTagName('span')[0];
+					targetSpan.classList.remove('show');
+				}
+			</script>
+	</body>
+</html>
