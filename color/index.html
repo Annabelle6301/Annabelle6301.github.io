@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			[data-theme = 'blue']{
+				color:blue;
+			}
+			[data-theme = 'green']{
+				color:green;
+			}
+			[data-theme = 'yellow']{
+				color:yellow;
+			}
+			.like{
+				position: absolute;
+				width: 300px;
+				height: 200px;
+				background-color: pink;
+				margin-left:40% ;
+				margin-top:10% ;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="like">
+		<button id="blue" style="background-color:lightblue ;">蓝色</button>
+	   <button id="green" style="background-color: lawngreen;">绿色</button>
+	   <button id="yellow" style="background-color: yellow;">黄色</button>
+	   <div class="text" >
+	   	原来你喜欢这个颜色哇！
+	   </div>	
+		</div>
+	   
+	   <script type="text/javascript">
+	   	var oGreen = document.getElementById("green");
+	   	var oBlue = document.getElementById("blue");
+	   	var oYellow = document.getElementById("yellow");
+	   	var oText = document.querySelector('.text');
+	   	
+	   	var curTheme = localStorage.getItem('theme');
+	   	
+	   	if(curTheme!=null) 
+	   	{
+	   		oText.dataset.theme = curTheme;
+	   	}
+	   	else{
+	   		console.log("Error");
+	   	}
+	   	
+	   	oBlue.addEventListener('click',setTheme);
+	   	oGreen.addEventListener('click',setTheme);
+	   	oYellow.addEventListener('click',setTheme);
+	   	
+	   	function setTheme () {
+	   		var target = event.target;
+	   		var id = target.id;
+	   		console.log(id);
+	   		oText.dataset.theme = id;
+	   		localStorage.setItem('theme',id);
+	   	}
+	   </script>
+	</body>
+</html>
