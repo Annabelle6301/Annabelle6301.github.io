@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>使用Element实现简单网页</title>
+		<!-- 引入样式 -->
+		<!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+		<link href="https://cdn.bootcss.com/element-ui/2.3.2/theme-chalk/index.css" rel="stylesheet">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<style>
+			body {
+				background-color: lavender;
+				padding: 30px;
+				font-family: "楷体";
+			}
+			
+			.container {
+				min-height: 400px;
+				max-width: 1000px;
+				border: 10px solid rgba(0,0,0,.5);
+				margin: auto;
+				padding: 20px;
+				color: blueviolet;
+			}
+			
+			
+			
+			.header .name {
+				margin: 0.5em 0;
+				font-size: 28px;
+			}
+			
+			.header .description {
+				margin-bottom: .5em;
+			}
+			
+			.header .link {
+				text-decoration: none;
+				color: #CB1B45;
+			}
+			
+			.header .img {
+				overflow: hidden;
+				border-radius: 50%;
+			}
+			
+			.header .img img {
+				width: 100%;
+				
+			}
+			
+			.menu:hover {
+				transition: all .5s;
+				color: #00f;
+				font-size: 1.5em;
+			}
+			/*
+				 在屏幕设备中，并且宽度介于100px-640px的设备中使用
+				 * */
+			/*@media only screen and (min-width: 100px) and (max-width: 640px) {
+				
+				body{
+					background: #dd0;
+				}
+			}*/
+			
+			.el-button.is-round {
+				padding: 23px;
+				border-radius: 100%;
+			}
+			
+			.skill {
+				position: relative;
+				margin-top: 5px;
+				margin-right: 15px;
+			}
+			
+			.skill1{
+				/*width: 50px;
+				height: auto;*/
+			}
+			
+			.skill::after {
+				content: attr(data-text);
+				position: absolute;
+				left: 10px;
+				top: 2px;
+				font-size: 0.8em;
+			}
+			
+			.card h3,
+			.card h2 {
+				margin: 0px;
+			}
+			
+			.card h3 {
+				margin-top: 20px;
+				color: #999;
+				font-size: 0.8em;
+			}
+			
+			.card h2 {
+				margin-bottom: 20px;
+				position: relative;
+			}
+			
+			.card h2::after {
+			/*
+			 默认就是文本，默认行内元素  inline
+			 	行内元素是没有宽的
+			 	如果需要设置宽度，那么需要转化显示方式
+			 * */
+				content: " ";
+				display: inline-block;
+				width: 40px;
+				height: 8px;
+				background-color: lightblue;
+				position: absolute;
+				left: 105px;
+				top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<el-row class="container">
+				<el-col>
+					<el-row class="header" type="flex" justify="space-between" :gutter="20">
+						<el-col :xs="18" :sm="16" :md="14" :lg="12">
+							<div class="logo">
+								<h1 class="name">
+									{{ name }}
+								</h1>
+								<div class="description">
+									{{ description }}   <br /><br />
+									QQ:{{QQ}}<br /><br />
+									电话{{phone}}
+								</div>
+								<div class="links">
+									<a class="link" v-for="item in links" :href="item.lUrl"> {{ item.lName }} </a>
+								</div>
+							</div>
+						</el-col>
+						<el-col :xs="6" :sm="4">
+							<div class="img">
+								<img :src="imgUrl" alt="" />
+							</div>
+						</el-col>
+					</el-row>
+					<el-row class="content">
+						<el-col :span='12'>
+							<div class="card">
+								<h3>Education</h3>
+								<h2>教育程度</h2>
+								<div>
+									<p>浙江邮电职业技术学院</p>
+								</div>
+							</div>
+						</el-col>
+						<!--<el-col :span='100'>
+							
+						</el-col>-->
+						<el-col :span='12'>
+							<div class="card">
+								<h3>Awards</h3>
+								<h2>荣誉奖项</h2>
+								<div>
+									<p>获2016-2017学年国家励志奖学金</p>
+									<p>获2016-2017学年校二等奖学金</p>
+									<p>获2016-2017学年校优秀学生干部</p>
+									<p>获2017年绍兴市服务外包专科组竞赛三等奖</p>
+									<p>于2017年12月份成为一名中共预备党员</p>
+								</div>
+							</div>
+						</el-col>
+						<el-col :span='12'>
+							<div class="card">
+								<h3>Skill List</h3>
+								<h2>技能列表</h2>
+								<div>
+									<el-progress class='skill' v-for="item in skills" :data-text="item.sName" :text-inside="true" :stroke-width="18" :percentage="item.sNum" :color="item.sColor"></el-progress>
+								</div>
+							</div>
+						</el-col>
+						
+						<el-col :span='100'>
+							<div class="card">
+								<h3>Self Assessment</h3>
+								<h2>自我评价</h2>
+								<div>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;性格有点内向、乐观上进、有爱心并善于施教并行；对待工作认真负责，善于沟通、协调有较强的组织能力与团队精神.</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;上进心强、勤于学习能不断进步自身的能力与综合素质。在未来的工作中，我将以充沛的精力，刻苦钻研的精神来努力工作，稳定地进步自己的工作能力，与公司同步发展。</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;不过参加实践活动有限，社会经验相对缺乏，我相信通过立足于社会能不断提升发展自己。</p>
+								</div>
+							</div>
+						</el-col>
+					</el-row>
+				</el-col>
+			</el-row>
+		</div>
+		<!-- 导入Vue -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<!-- 引入组件库 -->
+		<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+		<script src="https://cdn.bootcss.com/element-ui/2.3.2/index.js"></script>
+		<script>
+			//基于Vue
+			var app = new Vue({
+					el: "#app",
+					data: {
+						name: "黄小翠",
+						QQ: "1282488748",
+						phone: "1886777630",
+						links: [{
+							lName: '作品集',
+							lUrl: 'https://github.com/Annabelle6301/Annabelle6301.github.io'
+						}, {
+							lName: 'Github主页',
+							lUrl: 'https://github.com/Annabelle6301'
+						}, {
+							lName: '邮箱',
+							lUrl: '1282488748@qq.com'
+						}],
+						imgUrl: 'img/01.jpg',
+						skills: [{
+							sName: 'html',
+							sNum: 80,
+							sColor: '#33ff33'
+						}, {
+							sName: 'js',
+							sNum: 95,
+							sColor: '#66dd33'
+						}, {
+							sName: 'java',
+							sNum: 70,
+							sColor: '#99bb33'
+						}],
+					},
+				}
+
+			);
+			//sass less CSS的预处理器，赋予CSS以编程语言的特性
+			//sass安装   gulp\webpack 自动化构建
+			//自动化建构工具（前端开发中一些经常性的、繁琐的处理工作，比如压缩文件、合并文件、编译文件）  grunt gulp webpack
+			//CSS布局方式
+			//传统布局方式   浮动 定位  盒模型   第二学期主要学的方式   操作繁琐、自定义性强
+			//最新布局技术   瀑布流、自定义的布局方式    兼容性问题（ https://caniuse.com/）
+			//Flexbox
+			//CSS Grid 系列
+			//网格布局方式（栅格系统）
+			//bootstrap、element等UI库
+			//960 Grid System等网格库
+			//响应式布局，为了实现多个终端设备共用网页，并且呈现不同的样式
+			//媒体查询 根据使用设备的某个属性判断设备，进而呈现不同的CSS
+			//@media
+			//提高网页性能的关键点    减少请求
+			//请求   100个js .3k   浏览器向服务器说，我要这个文件   服务器接受之后反应之后发送
+			//请求   1个js   30k
+			//设置打印样式
+			//图片图标，不能动态改变颜色、大小等样式，可扩展性不强
+			//icon图标
+			//用特殊字体实现图标效果
+			//本质上，特殊网络字体。  @font-face
+			//font-awesome
+		</script>
+	</body>
+
+</html>
